@@ -65,7 +65,7 @@ bounds = function(TR, alphaR, betaR)  {
   maxtaun = min(etaR, bT)
   #
   #
-  if ( (theta > 0) & (theta < 1) ) {
+  if ( (theta >= 0) & (theta <= 1) ) {
     #
     minaT = (mintaup*piR + (1 - etaR - bT + mintaun)*(1-piR))/theta
     maxaT = (maxtaup*piR + (1 - etaR - bT + maxtaun)*(1-piR))/theta
@@ -81,7 +81,7 @@ bounds = function(TR, alphaR, betaR)  {
   }
   else {
     #
-    cat('Prevalence is not in (0,1)')
+    cat('Prevalence is not in [0,1]')
     cat('\n')
     return(c(NA,NA,NA,NA,NA,NA,NA,NA))
     #
@@ -98,27 +98,39 @@ PPV = function(alpha, beta, theta)  {
   # theta disease prevalence
   #
   #
-  if ( (theta > 0) & (theta < 1) & (alpha > 0) & (alpha < 1) & (beta > 0) & (beta < 1)) {
+  #
+  if ( (alpha >= 0) & (alpha <= 1) & (beta >= 0) & (beta <= 1) & (theta >= 0) & (theta <= 1) ) {
     #
     PPV = (alpha*theta)/(alpha*theta + (1-beta)*(1-theta))
     #
   }
+  #
   else {
-    return(NA)
+    #
+    PPV = NA
+    #
   }
+  #
+  return(PPV)
   #
 }
 
 NPV = function(alpha, beta, theta)  {
   #
-  if ( (theta > 0) & (theta < 1) & (alpha > 0) & (alpha < 1) & (beta > 0) & (beta < 1)) {
-    #
+  #
+  if ( (alpha >= 0) & (alpha <= 1) & (beta >= 0) & (beta <= 1) & (theta >= 0) & (theta <= 1) ) {
+  #
     NPV = (beta*(1-theta))/((1-alpha)*theta + beta*(1-theta))
+  #
+  }
+  #
+  else {
+    #
+    NPV = NA
     #
   }
-  else {
-    return(NA)
-  }
+  #
+  return(NPV)
   #
 }
 

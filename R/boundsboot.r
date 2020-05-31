@@ -38,7 +38,7 @@
 #' ## alphaR = 0.91
 #' ## betaR = 0.88
 #' ## and other settings to see that bootstrap samples
-#' ## may lead TR that gives prevalence outside (0,1)
+#' ## may lead TR that gives prevalence outside [0,1]
 #' ##
 #'
 #'

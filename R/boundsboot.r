@@ -55,17 +55,7 @@ boundsboot = function(data, indices, abR)  {
   #
   da = data[indices,]
   TR = table(da, dnn = c('T', 'R'))
-  #
-  #if ( (ncol(TR) == 2) & (nrow(TR) == 2) ) {
-    #
-    bds = bounds(TR, alphaR=abR[1], betaR=abR[2])
-    #
-  #}
-  #else {
-  #  #
-  #  bds = c(NA, NA, NA, NA, NA, NA, NA, NA)
-  #  #
-  #}
+  bds = bounds(TR, alphaR=abR[1], betaR=abR[2])
   #
   return(bds)
   #
